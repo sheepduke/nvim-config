@@ -30,13 +30,6 @@ local function setupNvimTree()
         return math.floor(vim.opt.columns:get() * widthRatio)
       end,
     },
-    renderer = {
-      icons = {
-        show = {
-          git = false
-        }
-      }
-    },
   })
 end
 
