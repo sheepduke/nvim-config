@@ -1,14 +1,18 @@
 local theme = "catppuccin-latte"
 
-function setup()
+local function setupTheme()
   vim.cmd("colorscheme " .. theme)
 end
 
 return {
+  -- Icons.
+  "nvim-tree/nvim-web-devicons",
+
   {
-    "catppuccin/nvim", 
+    -- Theme.
+    "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
-    config = setup,
+    config = setupTheme,
   }
 }

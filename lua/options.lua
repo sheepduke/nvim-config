@@ -1,8 +1,12 @@
 local o = vim.opt
+local g = vim.g
 
 -- Disable netrw.
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+
+-- Set leading key.
+g.mapleader = " "
 
 o.expandtab = true -- Use spaces as tabs.
 o.smartindent = true

@@ -1,3 +1,14 @@
+local function setup()
+  local wk = require("which-key")
+
+  wk.register({
+    t = {
+      name = "Tools",
+      t = { "<cmd>NvimTreeFocus<cr>", "Nvim Tree Focus" }
+    },
+  }, { prefix = "<leader>" })
+end
+
 return {
   {
     "folke/which-key.nvim",
@@ -6,6 +17,7 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
+    config = setup,
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
