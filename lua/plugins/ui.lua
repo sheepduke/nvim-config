@@ -10,4 +10,8 @@ return {
       })
     end
   },
+  -- Display cursorline.
+  {
+    "RRethy/vim-illuminate"
+  }
 }
