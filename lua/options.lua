@@ -22,3 +22,6 @@ o.termguicolors = true
 -- Show line number.
 wo.number = true
 wo.relativenumber = true
+
+-- Display cursor line.
+vim.o.cursorline = true
