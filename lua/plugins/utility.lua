@@ -1,5 +1,4 @@
 return {
-  {
-    "jghauser/mkdir.nvim"
-  }
+  "jghauser/mkdir.nvim",
+  "lambdalisue/suda.vim"
 }
