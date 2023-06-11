@@ -1,4 +1,5 @@
 local o = vim.opt
+local wo = vim.wo
 local g = vim.g
 
 -- Disable netrw.
@@ -15,5 +16,9 @@ o.shiftwidth = 2
 
 o.wildmode = "longest,full"
 
--- set termguicolors to enable highlight groups
+-- Set termguicolors to enable highlight groups.
 o.termguicolors = true
+
+-- Show line number.
+wo.number = true
+wo.relativenumber = true
