@@ -2,9 +2,13 @@ local function setup()
   local wk = require("which-key")
 
   wk.register({
-    t = {
-      name = "Tools",
-      t = { "<cmd>NvimTreeFocus<cr>", "Nvim Tree Focus" }
+    b = {
+      name = "Buffer",
+      b = { "<cmd>:lua require('buffer_manager.ui').toggle_quick_menu()<cr>", "Buffer Menu" }
+    },
+    d = {
+      name = "Directory",
+      d = { "<cmd>NvimTreeOpen<cr>", "Nvim Tree" }
     },
   }, { prefix = "<leader>" })
 end
