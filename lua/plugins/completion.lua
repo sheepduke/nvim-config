@@ -10,9 +10,16 @@ return {
       "neovim/nvim-lspconfig"
     },
     config = function()
+      local cmp = require("cmp")
+
+      cmp.setup {
+        sources = {
+          { name = "nvim_lsp" }
+        }
+      }
+
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- Advertise capabilities to `clangd`.
       local lspconfig = require("lspconfig")
 
       lspconfig.lua_ls.setup {
@@ -63,11 +70,6 @@ return {
           ["<C-e>"] = cmp.mapping.abort(),
           -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-        }, {
-          { name = "buffer" }
         })
       }
     end
