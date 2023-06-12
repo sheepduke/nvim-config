@@ -1,10 +1,18 @@
 return {
+  --------------------------------------------------------------------
   -- Automatically creates parent directory when saving a file.
   "jghauser/mkdir.nvim",
 
+  --------------------------------------------------------------------
   -- Save as sudo.
   "lambdalisue/suda.vim",
 
+  --------------------------------------------------------------------
   -- Automatically close pairs.
-  "jiangmiao/auto-pairs",
+  {
+    "jiangmiao/auto-pairs",
+    config = function()
+      vim.api.nvim_set_var("AutoPairsFlyMode", 1)
+    end
+  }
 }

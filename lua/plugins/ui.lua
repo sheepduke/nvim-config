@@ -1,4 +1,5 @@
 return {
+  --------------------------------------------------------------------
   {
     "nvim-lualine/lualine.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -10,6 +11,7 @@ return {
       })
     end
   },
+  --------------------------------------------------------------------
   -- Display cursorline.
   {
     "RRethy/vim-illuminate"
