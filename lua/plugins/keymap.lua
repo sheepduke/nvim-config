@@ -1,11 +1,3 @@
-local function openBufferManager()
-  require("buffer_manager.ui").toggle_quick_menu() 
-end
-
-local function openOilBuffer()
-  require("oil").open(".")
-end
-
 local function setup()
   local wk = require("which-key")
 
@@ -21,13 +13,28 @@ local function setup()
     ["9"] = { "9gt<cr>", "Tab 9" },
     b = {
       name = "Buffer",
-      b = { openBufferManager, "Buffer Menu" },
       k = { ":bdelete<cr>", "Kill Buffer" },
+      l = { function() require("buffer_manager.ui").toggle_quick_menu() end, "Buffer List" },
     },
     d = {
       name = "Directory",
       d = { ":NvimTreeOpen<cr>", "Nvim Tree" },
-      o = { openOilBuffer, "Oil Buffer" }
+      o = { ":Oil<cr>", "Oil Buffer" }
+    },
+    f = {
+      name = "Find",
+      b = { ":Telescope buffers<cr>", "Buffer" },
+      f = { ":Telescope find_files<cr>", "File" },
+      g = { ":Telescope live_grep<cr>", "Grep" },
+      m = { ":Telescope man_pages<cr>", "Man" },
+      p = { ":Telescope git_files<cr>", "Git File" },
+    },
+    p = {
+      name = "Project",
+      b = { ":Telescope git_branches<cr>", "Branches" },
+      c = { ":Telescope git_commits<cr>", "Commits" },
+      f = { ":Telescope git_files<cr>", "Files" },
+      s = { ":Telescope git_status<cr>", "Status" },
     },
     t = {
       name = "Tab",

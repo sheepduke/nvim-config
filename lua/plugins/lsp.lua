@@ -14,6 +14,8 @@ return {
         require("lsp-format").on_attach(client)
       end
 
+      require("lsp-format").setup {}
+
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup { on_attach = on_attach }
     end
@@ -24,20 +26,6 @@ return {
     dependencies = { "folke/neodev.nvim" },
     config = function()
       require("neodev")
-
-      -- then setup your lsp server as usual
-      local lspconfig = require('lspconfig')
-
-      -- example to setup lua_ls and enable call snippets
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = "Replace"
-            }
-          }
-        }
-      })
     end
   },
 }

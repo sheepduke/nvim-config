@@ -21,27 +21,6 @@ return {
   },
   -------------------------------------------------------------------
   {
-    "hrsh7th/cmp-cmdline",
-    config = function()
-      local cmp = require("cmp")
-
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" }
-        }, {
-          {
-            name = "cmdline",
-            option = {
-              ignore_cmds = { "Man", "!" }
-            }
-          }
-        })
-      })
-    end
-  },
-  -------------------------------------------------------------------
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-buffer",
@@ -59,11 +38,12 @@ return {
             require("luasnip").lsp_expand(args.body)
           end
         },
-        sources = {
+        sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "buffer" },
-        },
+        }, {
+          { name = "buffer" }
+        }),
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -73,6 +53,15 @@ return {
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         })
       }
+
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
+        })
+      })
     end
   }
 }
