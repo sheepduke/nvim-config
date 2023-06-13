@@ -1,5 +1,7 @@
 local function setup()
   local wk = require("which-key")
+  local mark = require("harpoon.mark")
+  local markUi = require("harpoon.ui")
 
   wk.register({
     ["1"] = { "1gt<cr>", "Tab 1" },
@@ -26,8 +28,16 @@ local function setup()
       b = { ":Telescope buffers<cr>", "Buffer" },
       f = { ":Telescope find_files<cr>", "File" },
       g = { ":Telescope live_grep<cr>", "Grep" },
-      m = { ":Telescope man_pages<cr>", "Man" },
+      m = { ":Telescope harpoon marks<cr>", "Marks" },
+      M = { ":Telescope man_pages<cr>", "Man" },
       p = { ":Telescope git_files<cr>", "Git File" },
+    },
+    m = {
+      name = "Mark",
+      l = { function() markUi.toggle_quick_menu() end, "List" },
+      m = { function() mark.add_file() end, "Mark" },
+      t = { function() mark.toggle_file() end, "Toggle" },
+      u = { function() mark.rm_file() end, "Unmark" },
     },
     p = {
       name = "Project",
