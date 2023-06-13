@@ -1,7 +1,7 @@
 local function setup()
   local wk = require("which-key")
-  local mark = require("harpoon.mark")
-  local markUi = require("harpoon.ui")
+  local harpoonMark = require("harpoon.mark")
+  local harpoonUi = require("harpoon.ui")
 
   wk.register({
     ["1"] = { "1gt<cr>", "Tab 1" },
@@ -34,10 +34,10 @@ local function setup()
     },
     m = {
       name = "Mark",
-      l = { function() markUi.toggle_quick_menu() end, "List" },
-      m = { function() mark.add_file() end, "Mark" },
-      t = { function() mark.toggle_file() end, "Toggle" },
-      u = { function() mark.rm_file() end, "Unmark" },
+      l = { function() harpoonUi.toggle_quick_menu() end, "List" },
+      m = { function() harpoonMark.add_file() end, "Mark" },
+      t = { function() harpoonMark.toggle_file() end, "Toggle" },
+      u = { function() harpoonMark.rm_file() end, "Unmark" },
     },
     p = {
       name = "Project",
