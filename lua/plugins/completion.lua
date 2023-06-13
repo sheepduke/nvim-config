@@ -10,14 +10,6 @@ return {
       "neovim/nvim-lspconfig"
     },
     config = function()
-      local cmp = require("cmp")
-
-      cmp.setup {
-        sources = {
-          { name = "nvim_lsp" }
-        }
-      }
-
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
@@ -50,29 +42,27 @@ return {
   },
   -------------------------------------------------------------------
   {
-    "hrsh7th/cmp-path",
-    config = function()
-      require("cmp").setup {
-        sources = {
-          { name = "path" }
-        }
-      }
-    end
-  },
-  -------------------------------------------------------------------
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
+      "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
     },
     config = function()
       local cmp = require("cmp")
+
       cmp.setup {
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end
+        },
+        sources = {
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+          { name = "buffer" },
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
