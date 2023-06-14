@@ -20,7 +20,7 @@ local function setup()
     },
     d = {
       name = "Directory",
-      d = { ":NvimTreeOpen<cr>", "Nvim Tree" },
+      d = { ":Neotree<cr>", "Neo Tree" },
       o = { ":Oil<cr>", "Oil Buffer" }
     },
     f = {
