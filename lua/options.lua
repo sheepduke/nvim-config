@@ -24,4 +24,7 @@ wo.number = true
 wo.relativenumber = true
 
 -- Display cursor line.
-vim.o.cursorline = true
+o.cursorline = true
+
+-- Automatically change pwd.
+o.autochdir = true
