@@ -1,7 +1,7 @@
 local function setup()
   local wk = require("which-key")
-  local harpoonMark = require("harpoon.mark")
-  local harpoonUi = require("harpoon.ui")
+  local gbm = require("ezbookmarks")
+  local pbm = require("grapple")
 
   wk.register({
     ["1"] = { "1gt<cr>", "Tab 1" },
@@ -28,16 +28,18 @@ local function setup()
       b = { ":Telescope buffers<cr>", "Buffer" },
       f = { ":Telescope find_files<cr>", "File" },
       g = { ":Telescope live_grep<cr>", "Grep" },
-      m = { ":Telescope harpoon marks<cr>", "Marks" },
+      m = { ":Telescope marks<cr>", "Marks" },
       M = { ":Telescope man_pages<cr>", "Man" },
       p = { ":Telescope git_files<cr>", "Git File" },
     },
     m = {
       name = "Mark",
-      l = { function() harpoonUi.toggle_quick_menu() end, "List" },
-      m = { function() harpoonMark.add_file() end, "Mark" },
-      t = { function() harpoonMark.toggle_file() end, "Toggle" },
-      u = { function() harpoonMark.rm_file() end, "Unmark" },
+      a = { function() gbm.AddBookmark() end, "Add Global Bookmark" },
+      g = { function() gbm.OpenBookmark() end, "List Global Bookmark" },
+      r = { function() gbm.RemoveBookmark() end, "Remove Global Bookmark" },
+      m = { function() pbm.select { key = vim.fn.getcharstr() } end, "Jump to Project Bookmark" },
+      M = { function() pbm.toggle { key = vim.fn.getcharstr() } end, "Set Named Project Bookmark" },
+      l = { ":GrapplePopup tags<cr>", "List Project Bookmark" },
     },
     p = {
       name = "Project",
