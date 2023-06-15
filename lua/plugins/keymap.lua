@@ -47,6 +47,7 @@ local function setup()
       c = { ":Telescope git_commits<cr>", "Commits" },
       f = { ":Telescope git_files<cr>", "Files" },
       s = { ":Telescope git_status<cr>", "Status" },
+      p = { ":Telescope projects<cr>", "Projects" },
     },
     t = {
       name = "Tab",
