@@ -16,7 +16,6 @@ local function setup()
     b = {
       name = "Buffer",
       k = { ":bdelete<cr>", "Kill Buffer" },
-      l = { function() require("buffer_manager.ui").toggle_quick_menu() end, "Buffer List" },
     },
     c = {
       name = "Common Tools",

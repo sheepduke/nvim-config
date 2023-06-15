@@ -14,6 +14,18 @@ return {
     config = function()
       local telescope = require("telescope")
       telescope.load_extension("fzf")
+
+      telescope.setup {
+        pickers = {
+          buffers = {
+            mappings = {
+              i = {
+                ["<C-d>"] = "delete_buffer"
+              }
+            }
+          }
+        }
+      }
     end
   },
   --------------------------------------------------------------------
