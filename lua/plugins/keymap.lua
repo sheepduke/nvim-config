@@ -4,15 +4,6 @@ local function setup()
   local pbm = require("grapple")
 
   wk.register({
-    ["1"] = { "1gt<cr>", "Tab 1" },
-    ["2"] = { "2gt<cr>", "Tab 2" },
-    ["3"] = { "3gt<cr>", "Tab 3" },
-    ["4"] = { "4gt<cr>", "Tab 4" },
-    ["5"] = { "5gt<cr>", "Tab 5" },
-    ["6"] = { "6gt<cr>", "Tab 6" },
-    ["7"] = { "7gt<cr>", "Tab 7" },
-    ["8"] = { "8gt<cr>", "Tab 8" },
-    ["9"] = { "9gt<cr>", "Tab 9" },
     b = {
       name = "Buffer",
       k = { ":Bdelete<cr>", "Kill Buffer" },
@@ -69,6 +60,20 @@ local function setup()
 
   wk.register({
     ["<C-s>"] = { ":w<cr>", "Save" },
+  })
+
+  wk.register({
+    ["<M-1>"] = { "1gt<cr>", "Tab 1" },
+    ["<M-2>"] = { "2gt<cr>", "Tab 2" },
+    ["<M-3>"] = { "3gt<cr>", "Tab 3" },
+    ["<M-4>"] = { "4gt<cr>", "Tab 4" },
+    ["<M-5>"] = { "5gt<cr>", "Tab 5" },
+    ["<M-6>"] = { "6gt<cr>", "Tab 6" },
+    ["<M-7>"] = { "7gt<cr>", "Tab 7" },
+    ["<M-8>"] = { "8gt<cr>", "Tab 8" },
+    ["<M-9>"] = { "9gt<cr>", "Tab 9" },
+    ["<M-h>"] = { ":tabprevious<cr>", "Next Tab" },
+    ["<M-l>"] = { ":tabnext<cr>", "Next Tab" },
   })
 end
 
