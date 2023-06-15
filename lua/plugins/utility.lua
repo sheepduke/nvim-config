@@ -21,6 +21,7 @@ return {
     build = ":TSUpdate"
   },
   --------------------------------------------------------------------
+  -- Replace in batch.
   {
     "nvim-pack/nvim-spectre",
     dependencies = {
@@ -29,5 +30,10 @@ return {
     config = function()
       require("spectre").setup()
     end
+  },
+  --------------------------------------------------------------------
+  -- Delete buffer while keeping the window layout.
+  {
+    "famiu/bufdelete.nvim"
   }
 }

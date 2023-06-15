@@ -15,7 +15,7 @@ local function setup()
     ["9"] = { "9gt<cr>", "Tab 9" },
     b = {
       name = "Buffer",
-      k = { ":bdelete<cr>", "Kill Buffer" },
+      k = { ":Bdelete<cr>", "Kill Buffer" },
     },
     c = {
       name = "Common Tools",
