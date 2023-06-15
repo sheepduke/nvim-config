@@ -48,6 +48,7 @@ local function setup()
       c = { ":tabclose<cr>", "Close Tab" },
       l = { ":tabnext<cr>", "Next Tab" },
       h = { ":tabprevious<cr>", "Previous Tab" },
+      o = { ":tabonly<cr>", "Close Others" },
     },
     w = {
       name = "Write",
