@@ -18,6 +18,10 @@ local function setup()
       k = { ":bdelete<cr>", "Kill Buffer" },
       l = { function() require("buffer_manager.ui").toggle_quick_menu() end, "Buffer List" },
     },
+    c = {
+      name = "Common Tools",
+      s = { ":Spectre<cr>", "Spectre" }
+    },
     d = {
       name = "Directory",
       d = { ":Neotree<cr>", "Neo Tree" },
@@ -30,7 +34,7 @@ local function setup()
       g = { ":Telescope live_grep<cr>", "Grep" },
       m = { ":Telescope marks<cr>", "Marks" },
       M = { ":Telescope man_pages<cr>", "Man" },
-      p = { ":Telescope git_files<cr>", "Git File" },
+      p = { ":Telescope projects<cr>", "Projects" },
     },
     m = {
       name = "Mark",
@@ -47,7 +51,6 @@ local function setup()
       c = { ":Telescope git_commits<cr>", "Commits" },
       f = { ":Telescope git_files<cr>", "Files" },
       s = { ":Telescope git_status<cr>", "Status" },
-      p = { ":Telescope projects<cr>", "Projects" },
     },
     t = {
       name = "Tab",

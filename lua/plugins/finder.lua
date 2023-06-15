@@ -15,5 +15,16 @@ return {
       local telescope = require("telescope")
       telescope.load_extension("fzf")
     end
+  },
+  --------------------------------------------------------------------
+  {
+    "ahmedkhalf/project.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim"
+    },
+    config = function()
+      require("project_nvim").setup()
+      require('telescope').load_extension('projects')
+    end
   }
 }
