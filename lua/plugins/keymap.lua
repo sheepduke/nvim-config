@@ -10,12 +10,13 @@ local function setup()
     },
     c = {
       name = "Common Tools",
-      s = { ":Spectre<cr>", "Spectre" }
+      s = { ":Spectre<cr>", "Spectre" },
+      t = { ":terminal<cr>", "Terminal" },
     },
     d = {
       name = "Directory",
       d = { ":Neotree<cr>", "Neo Tree" },
-      o = { ":Oil<cr>", "Oil Buffer" }
+      o = { ":Oil<cr>", "Oil Buffer" },
     },
     f = {
       name = "Find",
