@@ -23,11 +23,14 @@ return {
       require("indent_blankline").setup {
         show_current_context = true,
         show_current_context_start = true,
+        filetype_exclude = {
+          "dashboard"
+        }
       }
     end
   },
   --------------------------------------------------------------------
-  -- lazy.nvim
+  -- Notification and cmd prompt overhaul.
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -42,5 +45,24 @@ return {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
+  },
+  --------------------------------------------------------------------
+  -- Welcome page.
+  {
+    "glepnir/dashboard-nvim",
+    event = "VimEnter",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons"
+    },
+    config = function()
+      require("dashboard").setup {
+        theme = "hyper",
+        config = {
+          mru = {
+            limit = 10
+          }
+        }
+      }
+    end
   }
 }
