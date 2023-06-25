@@ -19,11 +19,19 @@ return {
 
       local lspconfig = require("lspconfig")
 
+      -- F#
+      lspconfig.fsautocomplete.setup {
+        on_attach = on_attach,
+        capabilities = capabilities
+      }
+
+      -- Lua
       lspconfig.lua_ls.setup {
         on_attach = on_attach,
         capabilities = capabilities,
       }
 
+      -- Rust
       lspconfig.rust_analyzer.setup {
         on_attach = on_attach,
         capabilities = capabilities,
