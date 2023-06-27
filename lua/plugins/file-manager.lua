@@ -51,7 +51,16 @@ return {
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("oil").setup()
+      require("oil").setup {
+        -- Do not restore window options to previous values when leaving an oil buffer.
+        restore_win_options = false,
+        -- Skip the confirmation popup for simple operations
+        skip_confirm_for_simple_edits = true,
+        keymaps = {
+          ["H"] = "actions.toggle_hidden",
+          ["<bs>"] = "actions.parent"
+        }
+      }
     end
   }
 }
