@@ -2,8 +2,15 @@ return {
   --------------------------------------------------------------------
   {
     "nvim-telescope/telescope-fzf-native.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim"
+    },
     build =
-    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    config = function()
+      local telescope = require("telescope")
+      telescope.load_extension("fzf")
+    end
   },
   --------------------------------------------------------------------
   {
@@ -13,8 +20,6 @@ return {
     },
     config = function()
       local telescope = require("telescope")
-      telescope.load_extension("fzf")
-
       telescope.setup {
         pickers = {
           buffers = {
