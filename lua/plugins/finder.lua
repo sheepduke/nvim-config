@@ -8,8 +8,7 @@ return {
     build =
     "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     config = function()
-      local telescope = require("telescope")
-      telescope.load_extension("fzf")
+      require("telescope").load_extension("fzf")
     end
   },
   --------------------------------------------------------------------
@@ -19,8 +18,7 @@ return {
       "nvim-lua/plenary.nvim"
     },
     config = function()
-      local telescope = require("telescope")
-      telescope.setup {
+      require("telescope").setup {
         pickers = {
           buffers = {
             mappings = {
@@ -34,14 +32,13 @@ return {
     end
   },
   --------------------------------------------------------------------
+  -- Global bookmark.
   {
-    "ahmedkhalf/project.nvim",
+    "lifer0se/ezbookmarks.nvim",
     dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-lua/popup.nvim",
       "nvim-telescope/telescope.nvim"
-    },
-    config = function()
-      require("project_nvim").setup()
-      require('telescope').load_extension('projects')
-    end
+    }
   }
 }

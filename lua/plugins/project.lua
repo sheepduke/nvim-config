@@ -1,6 +1,21 @@
 return {
   --------------------------------------------------------------------
-  -- Project level bookmark.
+  -- Project/Worksapce management.
+  {
+    "natecraddock/workspaces.nvim",
+    config = function()
+      require("telescope").load_extension("workspaces")
+
+      require("workspaces").setup({
+        cd_type = "tab",
+        hooks = {
+          open = "Neotree",
+        }
+      })
+    end
+  },
+  --------------------------------------------------------------------
+  -- Project level file bookmark.
   {
     "cbochs/grapple.nvim",
     dependencies = {
@@ -22,14 +37,4 @@ return {
       })
     end
   },
-  --------------------------------------------------------------------
-  -- Global bookmark.
-  {
-    "lifer0se/ezbookmarks.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-lua/popup.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  }
 }

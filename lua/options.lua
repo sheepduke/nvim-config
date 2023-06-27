@@ -25,6 +25,3 @@ wo.relativenumber = true
 
 -- Display cursor line.
 o.cursorline = true
-
--- Automatically change pwd.
-o.autochdir = true
