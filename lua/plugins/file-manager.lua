@@ -1,3 +1,38 @@
+local open_with_external_program = function(path)
+  local fileTypeHandler = {
+    -- Audio & Video.
+    ["m4v"] = "mpv %s",
+    ["mkv"] = "mpv %s",
+    ["mp4"] = "mpv %s",
+    -- Image.
+    ["jpg"] = "feh -Z. %s",
+    ["png"] = "feh -Z. %s",
+    ["jpeg"] = "feh -Z. %s",
+    -- Documents.
+    ["odt"] = "libreoffice %s",
+    ["ods"] = "libreoffice %s",
+    ["odp"] = "libreoffice %s",
+    ["odg"] = "libreoffice %s",
+    ["doc"] = "libreoffice %s",
+    ["docx"] = "libreoffice %s",
+    ["xls"] = "libreoffice %s",
+    ["xlsx"] = "libreoffice %s",
+    ["ppt"] = "libreoffice %s",
+    ["pptx"] = "libreoffice %s",
+    ["pdf"] = "mupdf",
+  }
+  local fileType = string.match(path, "[^.]+$")
+  local handler = fileTypeHandler[fileType]
+  if handler == nil then
+    vim.notify(
+      string.format("Unable to find a registered program for file type '%s'", fileType),
+      vim.log.levels.ERROR)
+  else
+    local command = string.format(handler, path)
+    vim.fn.jobstart(command)
+  end
+end
+
 return {
   --------------------------------------------------------------------
   {
@@ -25,22 +60,7 @@ return {
             local node = state.tree:get_node()
             local path = node:get_id()
 
-            local fileTypeHandler = {
-              ["m4v"] = "mpv %s",
-              ["mkv"] = "mpv %s",
-              ["mp4"] = "mpv %s"
-            }
-
-            local fileType = string.match(path, "[^.]+$")
-            local handler = fileTypeHandler[fileType]
-            if handler == nil then
-              vim.notify(
-                string.format("Unable to find a registered program for file type '%s'", fileType),
-                vim.log.levels.ERROR)
-            else
-              local command = string.format(handler, path)
-              vim.fn.jobstart(command)
-            end
+            open_with_external_program(path)
           end
         }
       }
