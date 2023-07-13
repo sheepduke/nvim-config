@@ -9,7 +9,7 @@ return {
       require("workspaces").setup({
         cd_type = "tab",
         hooks = {
-          open = "Neotree",
+          open = { "Neotree", "Telescope find_files" },
         }
       })
     end
