@@ -1,24 +1,30 @@
+local open_with = function(path)
+  local program = vim.fn.input("Open with Program: ")
+  local command = string.format("%s %s", program, path)
+  vim.fn.jobstart(command)
+end
+
 local open_with_external_program = function(path)
   local fileTypeHandler = {
     -- Audio & Video.
-    ["m4v"] = "mpv %s",
-    ["mkv"] = "mpv %s",
-    ["mp4"] = "mpv %s",
+    ["m4v"] = "mpv",
+    ["mkv"] = "mpv",
+    ["mp4"] = "mpv",
     -- Image.
-    ["jpg"] = "feh -Z. %s",
-    ["png"] = "feh -Z. %s",
-    ["jpeg"] = "feh -Z. %s",
+    ["jpg"] = "feh -Z.",
+    ["png"] = "feh -Z.",
+    ["jpeg"] = "feh -Z.",
     -- Documents.
-    ["odt"] = "libreoffice %s",
-    ["ods"] = "libreoffice %s",
-    ["odp"] = "libreoffice %s",
-    ["odg"] = "libreoffice %s",
-    ["doc"] = "libreoffice %s",
-    ["docx"] = "libreoffice %s",
-    ["xls"] = "libreoffice %s",
-    ["xlsx"] = "libreoffice %s",
-    ["ppt"] = "libreoffice %s",
-    ["pptx"] = "libreoffice %s",
+    ["odt"] = "libreoffice",
+    ["ods"] = "libreoffice",
+    ["odp"] = "libreoffice",
+    ["odg"] = "libreoffice",
+    ["doc"] = "libreoffice",
+    ["docx"] = "libreoffice",
+    ["xls"] = "libreoffice",
+    ["xlsx"] = "libreoffice",
+    ["ppt"] = "libreoffice",
+    ["pptx"] = "libreoffice",
     ["pdf"] = "mupdf",
   }
   local fileType = string.match(path, "[^.]+$")
@@ -28,7 +34,7 @@ local open_with_external_program = function(path)
       string.format("Unable to find a registered program for file type '%s'", fileType),
       vim.log.levels.ERROR)
   else
-    local command = string.format(handler, path)
+    local command = string.format(handler + " %s", path)
     vim.fn.jobstart(command)
   end
 end
@@ -51,16 +57,20 @@ return {
         filesystem = {
           window = {
             mappings = {
-              ["o"] = "openWithExternalProgram"
+              ["o"] = "openWithExternalProgram",
+              ["O"] = "openWith"
             },
           },
         },
         commands = {
           openWithExternalProgram = function(state)
-            local node = state.tree:get_node()
-            local path = node:get_id()
+            local path = state.tree:get_node():get_id()
 
             open_with_external_program(path)
+          end,
+          openWith = function(state)
+            local path = state.tree:get_node():get_id()
+            open_with(path)
           end
         }
       }
