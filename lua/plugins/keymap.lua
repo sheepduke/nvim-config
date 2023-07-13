@@ -26,6 +26,10 @@ local function setup()
       m = { ":Telescope marks<cr>", "Marks" },
       M = { ":Telescope man_pages<cr>", "Man" },
     },
+    l = {
+      name = "Lsp",
+      a = { function() vim.lsp.buf.code_action() end, "Code Action" },
+    },
     m = {
       name = "Mark",
       a = { function() gbm.AddBookmark() end, "Add Global Bookmark" },
