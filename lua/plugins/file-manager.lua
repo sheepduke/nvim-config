@@ -1,6 +1,6 @@
 local open_with = function(path)
   local program = vim.fn.input("Open with Program: ")
-  local command = string.format("%s %s", program, path)
+  local command = string.format("%s '%s'", program, path)
   vim.fn.jobstart(command)
 end
 
@@ -34,7 +34,7 @@ local open_with_external_program = function(path)
       string.format("Unable to find a registered program for file type '%s'", fileType),
       vim.log.levels.ERROR)
   else
-    local command = string.format(handler + " %s", path)
+    local command = string.format(handler .. " '%s'", path)
     vim.fn.jobstart(command)
   end
 end
