@@ -18,6 +18,14 @@ local function setup()
       d = { ":Neotree<cr>", "Neo Tree" },
       o = { ":Oil<cr>", "Oil Buffer" },
     },
+    e = {
+      name = "Diagnostic",
+      f = { function() vim.diagnostic.open_float() end, "Open Float" },
+      j = { function() vim.diagnostic.goto_next() end, "Goto Next" },
+      k = { function() vim.diagnostic.goto_prev() end, "Goto Previous" },
+      h = { function() vim.diagnostic.hide() end, "Hide" },
+      s = { function() vim.diagnostic.show() end, "Show" },
+    },
     f = {
       name = "Find",
       b = { ":Telescope buffers<cr>", "Buffer" },
