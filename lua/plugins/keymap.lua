@@ -37,6 +37,8 @@ local function setup()
     l = {
       name = "Lsp",
       a = { function() vim.lsp.buf.code_action() end, "Code Action" },
+      r = { function() vim.lsp.buf.rename() end, "Code Action" },
+      f = { function() vim.lsp.buf.format() end, "Code Action" },
     },
     m = {
       name = "Mark",
