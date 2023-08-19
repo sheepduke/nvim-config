@@ -6,7 +6,10 @@ local function setup()
   wk.register({
     b = {
       name = "Buffer",
+      b = { ":Telescope buffers<cr>", "Buffer" },
+      g = { ":Telescope live_grep<cr>", "Grep" },
       k = { ":Bdelete<cr>", "Kill Buffer" },
+      m = { ":Telescope man_pages<cr>", "Man" },
     },
     c = {
       name = "Common Tools",
@@ -14,11 +17,6 @@ local function setup()
       t = { ":terminal<cr>", "Terminal" },
     },
     d = {
-      name = "Directory",
-      d = { ":Neotree<cr>", "Neo Tree" },
-      o = { ":Oil<cr>", "Oil Buffer" },
-    },
-    e = {
       name = "Diagnostic",
       f = { function() vim.diagnostic.open_float() end, "Open Float" },
       j = { function() vim.diagnostic.goto_next() end, "Goto Next" },
@@ -27,23 +25,27 @@ local function setup()
       s = { function() vim.diagnostic.show() end, "Show" },
     },
     f = {
-      name = "Find",
-      b = { ":Telescope buffers<cr>", "Buffer" },
+      name = "File",
+      d = { ":Neotree<cr>", "Neo Tree" },
+      o = { ":Oil<cr>", "Oil Buffer" },
       f = { ":Telescope find_files<cr>", "File" },
-      g = { ":Telescope live_grep<cr>", "Grep" },
-      m = { ":Telescope marks<cr>", "Marks" },
-      M = { ":Telescope man_pages<cr>", "Man" },
     },
     l = {
       name = "Lsp",
       a = { function() vim.lsp.buf.code_action() end, "Code Action" },
-      r = { function() vim.lsp.buf.rename() end, "Code Action" },
-      f = { function() vim.lsp.buf.format() end, "Code Action" },
+      f = { function() vim.lsp.buf.format() end, "Format" },
+      h = { function() vim.lsp.buf.hover() end, "Hover" },
+      r = { function() vim.lsp.buf.rename() end, "Rename" },
+      R = { function() vim.lsp.buf.references() end, "References" },
     },
     m = {
-      name = "Mark",
+      name = "Bookmark",
       a = { function() gbm.AddBookmark() end, "Add Global Bookmark" },
-      l = { function() gbm.OpenBookmark() end, "List Global Bookmark" },
+      l = { ":GrapplePopup tags<cr>", "List Project Bookmark" },
+      m = { function() gbm.OpenBookmark() end, "List Global Bookmark" },
+      M = { ":Telescope marks<cr>", "Marks" },
+      p = { function() pbm.select { key = vim.fn.getcharstr() } end, "Jump to Project Bookmark" },
+      P = { function() pbm.toggle { key = vim.fn.getcharstr() } end, "Set Named Project Bookmark" },
       r = { function() gbm.RemoveBookmark() end, "Remove Global Bookmark" },
     },
     p = {
@@ -54,9 +56,6 @@ local function setup()
       s = { ":Telescope git_status<cr>", "Status" },
       p = { ":Telescope workspaces<cr>", "Open" },
       l = { ":WorkspacesList<cr>", "List" },
-      m = { function() pbm.select { key = vim.fn.getcharstr() } end, "Jump to Project Bookmark" },
-      M = { function() pbm.toggle { key = vim.fn.getcharstr() } end, "Set Named Project Bookmark" },
-      g = { ":GrapplePopup tags<cr>", "List Project Bookmark" },
     },
     t = {
       name = "Tab",
