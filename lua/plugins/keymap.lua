@@ -7,12 +7,12 @@ local function setup()
     b = {
       name = "Buffer",
       b = { ":Telescope buffers<cr>", "Buffer" },
-      g = { ":Telescope live_grep<cr>", "Grep" },
       k = { ":Bdelete<cr>", "Kill Buffer" },
-      m = { ":Telescope man_pages<cr>", "Man" },
     },
     c = {
       name = "Common Tools",
+      g = { ":Telescope live_grep<cr>", "Grep" },
+      m = { ":Telescope man_pages<cr>", "Man" },
       s = { ":Spectre<cr>", "Spectre" },
       t = { ":terminal<cr>", "Terminal" },
     },
@@ -29,6 +29,7 @@ local function setup()
       d = { ":Neotree<cr>", "Neo Tree" },
       o = { ":Oil<cr>", "Oil Buffer" },
       f = { ":Telescope find_files<cr>", "File" },
+      p = { ":cd %:h", "Set Path" },
     },
     l = {
       name = "Lsp",
