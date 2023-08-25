@@ -29,7 +29,7 @@ local function setup()
       d = { ":Neotree<cr>", "Neo Tree" },
       o = { ":Oil<cr>", "Oil Buffer" },
       f = { ":Telescope find_files<cr>", "File" },
-      p = { ":cd %:h", "Set Path" },
+      p = { ":cd %:h<cr>", "Set Path" },
     },
     l = {
       name = "Lsp",
