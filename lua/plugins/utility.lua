@@ -16,6 +16,7 @@ return {
     end
   },
   --------------------------------------------------------------------
+  -- Syntax parser.
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate"
@@ -35,5 +36,13 @@ return {
   -- Delete buffer while keeping the window layout.
   {
     "famiu/bufdelete.nvim"
+  },
+  --------------------------------------------------------------------
+  -- Floating terminal.
+  {
+    "voldikss/vim-floaterm",
+    config = function()
+      vim.g.floaterm_autoinsert = false
+    end
   }
 }

@@ -58,6 +58,15 @@ local function setup()
       p = { ":Telescope workspaces<cr>", "Open" },
       l = { ":WorkspacesList<cr>", "List" },
     },
+    s = {
+      name = "Floaterm",
+      h = { ":FloatermFirst<cr>", "First" },
+      j = { ":FloatermNext<cr>", "Next" },
+      k = { ":FloatermPrev<cr>", "Previous" },
+      l = { ":FloatermLast<cr>", "Last" },
+      n = { ":FloatermNew<cr>", "New" },
+      s = { ":FloatermToggle<cr>", "Toggle" },
+    },
     t = {
       name = "Tab",
       n = { ":tabnew<cr>", "New Tab" },
