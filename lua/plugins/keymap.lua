@@ -30,6 +30,7 @@ local function setup()
       o = { ":Oil<cr>", "Oil Buffer" },
       f = { ":Telescope find_files<cr>", "File" },
       p = { ":cd %:h<cr>", "Set Path" },
+      s = { ":SudaWrite<cr>", "Write in Sudo" },
     },
     l = {
       name = "Lsp",
@@ -45,8 +46,6 @@ local function setup()
       l = { ":GrapplePopup tags<cr>", "List Project Bookmark" },
       m = { function() gbm.OpenBookmark() end, "List Global Bookmark" },
       M = { ":Telescope marks<cr>", "Marks" },
-      p = { function() pbm.select { key = vim.fn.getcharstr() } end, "Jump to Project Bookmark" },
-      P = { function() pbm.toggle { key = vim.fn.getcharstr() } end, "Set Named Project Bookmark" },
       r = { function() gbm.RemoveBookmark() end, "Remove Global Bookmark" },
     },
     p = {
@@ -54,6 +53,8 @@ local function setup()
       b = { ":Telescope git_branches<cr>", "Branches" },
       c = { ":Telescope git_commits<cr>", "Commits" },
       f = { ":Telescope git_files<cr>", "Files" },
+      m = { function() pbm.select { key = vim.fn.getcharstr() } end, "Jump to Bookmarked File" },
+      M = { function() pbm.toggle { key = vim.fn.getcharstr() } end, "Set Bookmarked File" },
       s = { ":Telescope git_status<cr>", "Status" },
       p = { ":Telescope workspaces<cr>", "Open" },
       l = { ":WorkspacesList<cr>", "List" },
@@ -75,17 +76,11 @@ local function setup()
       h = { ":tabprevious<cr>", "Previous Tab" },
       o = { ":tabonly<cr>", "Close Others" },
     },
-    w = {
-      name = "Write",
-      a = { ":wa<cr>", "Write All" },
-      w = { ":wr<cr>", "Write File" },
-      f = { ":w!<cr>", "Force Write" },
-      s = { ":SudaWrite<cr>", "Write in Sudo" }
-    }
   }, { prefix = "<leader>" })
 
   wk.register({
     ["<C-s>"] = { ":w<cr>", "Save" },
+    ["<C-q>"] = { ":qa<cr>", "Quit All" },
   })
 
   wk.register({
