@@ -46,23 +46,4 @@ return {
       "rcarriga/nvim-notify",
     }
   },
-  --------------------------------------------------------------------
-  -- Welcome page.
-  {
-    "glepnir/dashboard-nvim",
-    event = "VimEnter",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons"
-    },
-    config = function()
-      require("dashboard").setup {
-        theme = "hyper",
-        config = {
-          mru = {
-            limit = 10
-          }
-        }
-      }
-    end
-  }
 }
