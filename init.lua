@@ -15,4 +15,4 @@ vim.opt.rtp:prepend(lazypath)
 require("options")
 require("lazy").setup("plugins")
 
-vim.cmd("colorscheme catppuccin-latte")
+vim.cmd("colorscheme catppuccin")

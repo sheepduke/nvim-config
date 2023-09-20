@@ -24,6 +24,11 @@ return {
     name = "catppuccin",
     lazy = true,
     priority = 1000,
-    dependencies = "nvim-tree/nvim-web-devicons"
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("catppuccin").setup {
+        flavour = "latte"
+      }
+    end
   }
 }
